@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
-import Input from "@/components/forms/Input"
 import Image from 'next/image'
+import FormControl from './forms/FormControl'
 
 const UpdateProfile = ({ user, setUserData, setLoading, setAlert }) => {
     const [formData, setFormData] = useState({ name: user.name, image: user.image })
@@ -55,12 +55,12 @@ const UpdateProfile = ({ user, setUserData, setLoading, setAlert }) => {
                     </div>
                     <span onClick={() => setShowPopup(false)} className='absolute right-0 top-0 bg-red-500 text-xl flex justify-center items-center text-white font-semibold w-[25px] h-[25px] rounded-full translate-x-1/4 -translate-y-1/4 cursor-pointer'>X</span>
                     <div className='flex flex-col gap-4'>
-                        <Input id="name" type="text" value={formData.name} setDataForm={setFormData} text="Update Name" style="bg-white dark:bg-[#1F1F1F]" />
+                        <FormControl id="name" type="text" value={formData.name} setDataForm={setFormData} text="Update Name" style="bg-white dark:bg-[#1F1F1F]" />
                         {updatePassword.update &&
                             <>
-                                <Input id="oldPassword" type="password" value={updatePassword.oldPassword} setDataForm={setupdatePassword} text="Your password" style="bg-white dark:bg-[#1F1F1F] " />
-                                <Input id="newPassword" type="password" value={updatePassword.newPassword} setDataForm={setupdatePassword} text="New password" style="bg-white dark:bg-[#1F1F1F] " />
-                                <Input id="comNewPassword" type="password" value={updatePassword.comNewPassword} setDataForm={setupdatePassword} text="confirme new password" style="bg-white dark:bg-[#1F1F1F] " />
+                                <FormControl id="oldPassword" type="password" value={updatePassword.oldPassword} setDataForm={setupdatePassword} text="Your password" style="bg-white dark:bg-[#1F1F1F] " />
+                                <FormControl id="newPassword" type="password" value={updatePassword.newPassword} setDataForm={setupdatePassword} text="New password" style="bg-white dark:bg-[#1F1F1F] " />
+                                <FormControl id="comNewPassword" type="password" value={updatePassword.comNewPassword} setDataForm={setupdatePassword} text="confirme new password" style="bg-white dark:bg-[#1F1F1F] " />
                             </>}
                     </div>
                     <p className='text-sm text-gray-600 mt-4 cursor-pointer hover:underline' onClick={() => setupdatePassword(prev => ({ ...prev, update: !prev.update }))}>{updatePassword.update ? "Dont Update The password" : "Update password"}</p>
