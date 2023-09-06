@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 
-const input = ({ id, type, value, setDataForm, text, style }) => {
+const Input = ({ id, type, value, setDataForm, text, style }) => {
     const [onTop, setOnTop] = useState(false)
     const handleClick = () => setOnTop(true)
     const handleBlur = () => {
@@ -11,7 +11,7 @@ const input = ({ id, type, value, setDataForm, text, style }) => {
     }
     useEffect(() => {
         if (value) setOnTop(true)
-    }, [])
+    }, [value])
     return (
         <div className='relative w-full h-10 z-0'>
             <label className={`-translate-y-1/2 text-sm font-medium left-2 transition-[font-size top] duration-200 absolute ${onTop ? `text-xs ${style} px-1 top-0 z-10` : " -z-10 top-1/2"}`} htmlFor={id}>{text}</label>
@@ -20,4 +20,4 @@ const input = ({ id, type, value, setDataForm, text, style }) => {
     )
 }
 
-export default input    
+export default Input    

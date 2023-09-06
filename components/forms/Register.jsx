@@ -1,5 +1,5 @@
 "use client"
-import Input from './input'
+import Input from './Input'
 import React, { useState } from 'react'
 
 const Register = ({ setPage, setAlert }) => {

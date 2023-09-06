@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import Input from "./input"
+import Input from "./Input"
 import { signIn } from "next-auth/react"
 import Providers from '../Providers'
 
@@ -34,7 +34,7 @@ const Login = ({ setPage }) => {
             </form>
             <div className='text-xl font-semibold text-center mt-4 relative bg-inherit z-0'><span className='bg-white dark:bg-[#202020] px-2'>Or</span> <div className='w-full h-1 bg-gray-500 absolute top-1/2 -translate-y-1/2 -z-10' /></div>
             <Providers />
-            <p>Don't have an account? <span className='text-[#461F7C] hover:underline cursor-pointer dark:text-[#9180FF] mt-4' onClick={() => setPage("register")}>Sigup now</span></p>
+            <p>Don&apos;t have an account? <span className='text-[#461F7C] hover:underline cursor-pointer dark:text-[#9180FF] mt-4' onClick={() => setPage("register")}>Sigup now</span></p>
         </>
     )
 }

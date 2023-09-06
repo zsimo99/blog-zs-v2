@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import Input from "@/components/forms/input"
+import Input from "@/components/forms/Input"
 import Image from 'next/image'
 
 const UpdateProfile = ({ user, setUserData, setLoading, setAlert }) => {
