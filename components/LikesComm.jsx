@@ -41,7 +41,7 @@ const Likes = ({ likes, postId, comm }) => {
             <div className='flex gap-4'>
                 {loading && <Orbit size={25} speed={1.5} color={isDark ? "white" : "black"} />}
                 <div className="flex flex-col items-center gap-2">
-                    <Image onClick={() => router.push(`/blog/${postId}`)} className='hover:scale-105 cursor-pointer transition-transform duration-75' src="/chat-a-bulles.png" alt='comment' width={30} height={30} />
+                    <Image onClick={() => router.push(`/blog/${postId}`)} className='hover:scale-105 cursor-pointer transition-transform duration-75' src={isDark ? "comment.svg" : "commentBlack.svg"} alt='comment' width={30} height={30} />
                     <p className='text-sm'>{comm?.length}</p>
                 </div>
                 <div className="flex flex-col items-center gap-2">

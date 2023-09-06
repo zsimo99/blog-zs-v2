@@ -33,7 +33,7 @@ const Post = ({ post }) => {
                     <p className='text-sm text-gray-500'>{post.creator.email}</p>
                 </div>
             </div>
-            <h3 className='text-2xl text-[#461F7C] font-bold mt-6 mb-2'>{post.title}</h3>
+            <h3 className='text-xl lg:text-2xl text-[#461F7C] font-bold mt-6 mb-2'>{post.title}</h3>
             <div>
                 <div dangerouslySetInnerHTML={{ __html: post.detail.length > 300 ? post.detail.slice(0, 300) : post.detail }} className='text-base text-gray-500 dark:text-gray-200 w-fit'></div>{post.detail.length > 300 && <Link href={`/blog/${post._id}`} className='hover:underline cursor-pointer'><span className='text-lg font-bold'>...</span>see more</Link>}
             </div>

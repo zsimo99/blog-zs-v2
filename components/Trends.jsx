@@ -13,7 +13,7 @@ const Trends = async () => {
                 {trends?.map((tag, i) => (
                     <div className='p-1' key={i}>
                         <div className='flex flex-col'>
-                            <Link className='text-gray-600 text-lg hover:underline' href={`/blog/?search=${tag._id}`}>#{tag._id}</Link>
+                            <Link className='text-gray-600 dark:text-gray-400 text-lg hover:underline' href={`/blog/?search=${tag._id}`}>#{tag._id}</Link>
                             <div className='text-sm text-gray-500 -translate-y-2 text-end'>{tag.count === 1 ? "1 post" : `${tag.count} posts`}</div>
                         </div>
                     </div>

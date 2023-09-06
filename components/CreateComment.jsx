@@ -29,7 +29,7 @@ const CreateComment = ({ postId }) => {
         <form onSubmit={handleSubmit}>
             <h3 className='text-2xl font-semibold mb-8'>Add comment :</h3>
             <TextEditor text={text} setText={setText} comment={true} />
-            <div className='flex justify-end mt-14'>
+            <div className='flex justify-end mt-14 max-sm:mt-20'>
                 <button type='submit' className='px-10 py-2 bg-[#461F7C] hover:bg-[#371f58] text-white font-bold text-lg rounded-md '>{loading ? "Submiting..." : "Submit"}</button>
             </div>
         </form>
