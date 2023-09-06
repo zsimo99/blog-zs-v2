@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import Input from "./Input"
 import { signIn } from "next-auth/react"
 import Providers from '../Providers'
+import FormControl from './FormControl'
 
 const Login = ({ setPage }) => {
     const [error, setError] = useState(null)
@@ -26,8 +26,8 @@ const Login = ({ setPage }) => {
         <>
             <form onSubmit={handleSubmit} className='max-w-4xl flex flex-col gap-10'>
                 <div className='flex flex-col gap-3'>
-                    <Input value={dataForm.email} id={"email"} setDataForm={setDataForm} type="email" text="Your Email" style="bg-white dark:bg-[#202020]" />
-                    <Input value={dataForm.password} id={"password"} setDataForm={setDataForm} type="password" text="Password" style="bg-white dark:bg-[#202020]" />
+                    <FormControl value={dataForm.email} id={"email"} setDataForm={setDataForm} type="email" text="Your Email" style="bg-white dark:bg-[#202020]" />
+                    <FormControl value={dataForm.password} id={"password"} setDataForm={setDataForm} type="password" text="Password" style="bg-white dark:bg-[#202020]" />
                     {error && <div className=' p-1 px-2 rounded-md text-white bg-red-500'>{error}</div>}
                 </div>
                 <button className='bg-[#461F7C] text-white transition-colors duration-300 hover:bg-[#502d81] py-2 rounded-lg'>Submit</button>

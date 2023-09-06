@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 
-const Input = ({ id, type, value, setDataForm, text, style }) => {
+const FormControl = ({ id, type, value, setDataForm, text, style }) => {
     const [onTop, setOnTop] = useState(false)
     const handleClick = () => setOnTop(true)
     const handleBlur = () => {
@@ -20,4 +20,4 @@ const Input = ({ id, type, value, setDataForm, text, style }) => {
     )
 }
 
-export default Input    
+export default FormControl
