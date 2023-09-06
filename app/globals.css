@@ -78,17 +78,16 @@
   font-size: 22px !important;
 }
 
-pre {
-  margin: 10px 0;
-  background-color: #2b2b2b; /* Dark background color */
-  color: #ffffff; /* Text color */
-  border: 1px solid #444; /* Border color */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px; /* Padding inside the <pre> tag */
-  font-family: monospace; /* Font family for code */
-  font-size: 14px; /* Font size for code */
-  line-height: 1.5; /* Line height for code */
-  overflow-x: auto; /* Horizontal scroll for long lines of code */
-  white-space: pre-wrap; /* Preserve line breaks and spaces */
-}
 
+
+pre {
+  @apply bg-[#f4f4f4] border border-[#ddd] rounded-[5px] py-[20px] px-[10px] font-[monospace] text-[14px] dark:bg-[#2b2b2b] dark:border-[#444] dark:text-white my-10 relative
+}
+pre::before{
+  content: " Code </>";
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  left: 5%;
+  @apply bg-white text-black dark:bg-black dark:text-white px-3 rounded-xl border border-gray-600
+}
