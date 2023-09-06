@@ -2,7 +2,7 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
-const Search = ({ value }) => {
+const Search = () => {
     const searchParams = useSearchParams()
     const searchValue = searchParams.get("search")
     const router = useRouter()

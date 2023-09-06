@@ -1,48 +1,13 @@
 import Posts from '@/components/Posts'
 import Search from '@/components/Search'
-import startDB from '@/lib/db'
-import PostModel from '@/models/PostModel'
 import React from 'react'
 
-// const posts = [
-//     {
-//         creator: {
-//             name: "simo", email: "simo@gmail.com", image: "/user.png"
-//         },
-//         title: "just a test",
-//         detail: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio at maiores nemo? Veritatis, illum deleniti ipsam quis obcaecati reprehenderit. Provident.",
-//         tags: ["tag1", "tag2"],
-//     },
-//     {
-//         creator: {
-//             name: "simo", email: "simo@gmail.com", image: "/user.png"
-//         },
-//         title: "just a test",
-//         detail: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio at maiores nemo? Veritatis, illum deleniti ipsam quis obcaecati reprehenderit. Provident.",
-//         tags: ["tag1", "tag2"],
-//     },
-//     {
-//         creator: {
-//             name: "simo", email: "simo@gmail.com", image: "/user.png"
-//         },
-//         title: "just a test",
-//         detail: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio at maiores nemo? Veritatis, illum deleniti ipsam quis obcaecati reprehenderit. Provident.",
-//         tags: ["tag1", "tag2"],
-//     },
-//     {
-//         creator: {
-//             name: "simo", email: "simo@gmail.com", image: "/user.png"
-//         },
-//         title: "just a test",
-//         detail: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam quos beatae, maxime deleniti tempore, explicabo eos, corporis ipsa vel enim cumque aliquid reprehenderit sed. Fugiat fugit asperiores optio praesentium voluptatibus Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, culpa.",
-//         tags: ["tag1", "tag2"],
-//     },
-// ]
+
 
 
 const page = async ({ searchParams }) => {
-    const search = searchParams.search
-    const page = searchParams.page
+    const search = searchParams.search || null
+    const page = searchParams.page || null
     const { posts, length } = await getPosts(search, page)
     return (
         <>
