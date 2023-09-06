@@ -55,7 +55,7 @@ const page = async ({ params }) => {
 }
 
 async function getPost(id) {
-    const res = await fetch(`${process.env.NEXTAUTH_URL}api/posts/${id}`, { cache: "no-cache" })
+    const res = await fetch(`https://blog-zs-v2.vercel.app/api/posts/${id}`, { cache: "no-cache" })
     return await res.json()
 }
 

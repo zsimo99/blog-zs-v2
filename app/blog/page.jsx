@@ -57,7 +57,7 @@ const page = async ({ searchParams }) => {
 }
 
 async function getPosts(search, page) {
-    let url = `${process.env.NEXTAUTH_URL}api/posts`;
+    let url = `https://blog-zs-v2.vercel.app/api/posts`;
 
     // Add search parameter if it's not null or empty
     if (search) {
