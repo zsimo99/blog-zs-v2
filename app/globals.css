@@ -2,26 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.pres {
+  perspective: 3700px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.cont {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  background-color: black;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+.rotate {
+  transform: rotateY(-180deg);
+}
+
+.bg-gradient {
+  background: hsla(238, 100%, 71%, 1);
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    90deg,
+    hsla(238, 100%, 71%, 1) 0%,
+    hsla(295, 100%, 84%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(238, 100%, 71%, 1) 0%,
+    hsla(295, 100%, 84%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(238, 100%, 71%, 1) 0%,
+    hsla(295, 100%, 84%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#696EFF", endColorstr="#F8ACFF", GradientType=1);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
+.backFace,.frontFace{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+.backFace{
+  transform: rotateY(-180deg);
+}
+.backFace::before,.frontFace::before{
+  content: "";
+  background-color: #461f7c65;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.childb li:not(:last-child){
+  border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+
+.ql-editor.ql-blank::before{
+  color: #768088 !important;
+  font-size: 22px !important;
+}
+
+pre {
+  margin: 10px 0;
+  background-color: #2b2b2b; /* Dark background color */
+  color: #ffffff; /* Text color */
+  border: 1px solid #444; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside the <pre> tag */
+  font-family: monospace; /* Font family for code */
+  font-size: 14px; /* Font size for code */
+  line-height: 1.5; /* Line height for code */
+  overflow-x: auto; /* Horizontal scroll for long lines of code */
+  white-space: pre-wrap; /* Preserve line breaks and spaces */
+}
+
