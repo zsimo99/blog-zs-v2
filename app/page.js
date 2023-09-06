@@ -1,7 +1,13 @@
+import Search from '@/components/Search'
 import Image from 'next/image'
 
 export default function Home() {
   return (
-    <h1>test</h1>
+    <div className=' min-h-screen grid place-items-center'>
+      <div className='px-4 sm:px-8 w-full md:max-w-3xl text-[#461F7C] dark:text-gray-300 font-bold'>
+        <h1 className='text-center mb-4 text-4xl xl:text-5xl'>Search for somthing...? </h1>
+        <Search />
+      </div>
+    </div>
   )
 }
