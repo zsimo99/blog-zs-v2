@@ -81,6 +81,8 @@
 
 
 pre {
+  overflow-x: auto; /* Horizontal scroll for long lines of code */
+  white-space: pre-wrap; 
   @apply bg-[#f4f4f4] border border-[#ddd] rounded-[5px] py-[20px] px-[10px] font-[monospace] text-[14px] dark:bg-[#2b2b2b] dark:border-[#444] dark:text-white my-10 relative
 }
 pre::before{
