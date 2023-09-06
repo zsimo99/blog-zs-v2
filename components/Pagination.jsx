@@ -26,9 +26,11 @@ const Pagination = ({ length }) => {
         router.push(`/blog?${search ? `search=${search}&` : ""}page=${targetPage}`)
     }
 
-    // useEffect(() => {
-    //     setPage(page + 1)
-    // }, [page])
+    useEffect(() => {
+        const numberOfPages = Math.floor(length / 10)
+        if (page > numberOfPages) setPage(numberOfPages)
+        if (page < 0) setPage(0)
+    }, [page, length])
 
     return (
         <>

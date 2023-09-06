@@ -1,3 +1,5 @@
+import startDB from '@/lib/db';
+import PostModel from '@/models/PostModel';
 import Link from 'next/link';
 import React from 'react'
 
@@ -22,11 +24,27 @@ const Trends = async () => {
 }
 
 async function getTrend() {
-    const url = 'http://localhost:3000/api/posts';
+    await startDB()
+    const pipeline = [
+        {
+            $unwind: "$tags"
+        },
+        {
+            $group: {
+                _id: "$tags",
+                count: { $sum: 1 }
+            }
+        },
+        {
+            $sort: { count: -1 }
+        },
+        {
+            $limit: 5
+        }
+    ];
 
-    const res = await fetch(url, { cache: "no-cache" })
-    const data = await res.json()
-    return data
+    const topTagNames = await PostModel.aggregate(pipeline);
+    return ({ topTagNames })
 }
 
 
