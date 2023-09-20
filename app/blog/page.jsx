@@ -20,7 +20,6 @@ const page = async ({ searchParams }) => {
             <div className='flex flex-col gap-8 mb-8'>
                 <Posts length={length} posts={posts} />
             </div>
-            <h1 className='mt-[100px] text-5xl text-center '>test</h1>
         </>
     )
 }
