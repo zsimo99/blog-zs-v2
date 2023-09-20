@@ -2,6 +2,7 @@ import Posts from '@/components/Posts'
 import Search from '@/components/Search'
 import startDB from '@/lib/db'
 import PostModel from '@/models/PostModel'
+import UserModel from '@/models/UserModel'
 import React from 'react'
 
 
@@ -48,10 +49,15 @@ async function getPosts(search, page) {
     const allposts = await PostModel.find(searchQuery)
     const length = allposts.length
     const numbrOfpages = Math.floor(length / 10)
-    const posts = await PostModel.find(searchQuery).populate("creator", "name email image").skip(isNaN(page * 10) ? 0 : (page > numbrOfpages ? (numbrOfpages * 10) : page * 10)).limit(10).sort("-createdAt")
+    const posts = await PostModel.find(searchQuery).populate({
+        path: 'creator',
+        model: UserModel,
+        select: "name email image",
+    }).skip(isNaN(page * 10) ? 0 : (page > numbrOfpages ? (numbrOfpages * 10) : page * 10)).limit(10).sort("-createdAt")
     const data = JSON.stringify({ length, posts })
     return (JSON.parse(data))
 }
+
 
 
 
