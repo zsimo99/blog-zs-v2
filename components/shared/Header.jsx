@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { usePathname } from "next/navigation"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { links } from '@/constants'
 import DarkModeToggle from '../DarkModeToggle'
 import { useSession, signOut } from 'next-auth/react'
@@ -10,7 +10,11 @@ import { useSession, signOut } from 'next-auth/react'
 const Header = () => {
     const { status } = useSession()
     const [show, setShow] = useState(false)
+    const [auth, setAuth] = useState(false)
     const path = usePathname()
+    useEffect(() => {
+        if (status === "authenticated") setAuth(true)
+    }, [status])
     return (
         <header className={`bg-[#461f7c] top-0 left-0 transition-colors duration-200 shadow-md  text-white fixed z-[999] w-full ${!show && "rounded-b-xl"} dark:bg-[#202020]`}>
             <div className="container flex justify-between items-center mx-auto w-full p-4 relative">
@@ -32,7 +36,7 @@ const Header = () => {
                             {((link.url.length > 1 && path.includes(link.url)) || link.url === path) && <div className='max-md:hidden absolute -bottom-1 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-white ' />}
                         </li>)}
                     {/* <Link href={!session ? "/dashboard/auth" : "/logout"}>{!session ? "login" : "logout"}</Link> */}
-                    {status === "authenticated" ? <li><button className='max-md:p-2 block max-md:border-b max-md:border-b-gray-300 hover:text-[#fff] w-full text-start  transition-[color] duration-100' onClick={signOut}>SignOut</button></li> : <li><Link className='max-md:p-2 block max-md:border-b max-md:border-b-gray-300 hover:text-[#fff]  transition-[color] duration-100' href="/dashboard/auth">Login</Link></li>}
+                    {auth ? <li><button className='max-md:p-2 block max-md:border-b max-md:border-b-gray-300 hover:text-[#fff] w-full text-start  transition-[color] duration-100' onClick={signOut}>SignOut</button></li> : <li><Link className='max-md:p-2 block max-md:border-b max-md:border-b-gray-300 hover:text-[#fff]  transition-[color] duration-100' href="/dashboard/auth">Login</Link></li>}
                 </ul>
             </div>
         </header>
