@@ -14,12 +14,12 @@ const page = async ({ searchParams }) => {
     const { posts, length } = await getPosts(search, page)
     return (
         <>
-            {/* <div className='mt-4 mb-8 lg:my-8'>
+            <div className='mt-4 mb-8 lg:my-8'>
                 <Search />
             </div>
             <div className='flex flex-col gap-8 mb-8'>
                 <Posts length={length} posts={posts} />
-            </div> */}
+            </div>
             <h1 className='mt-[100px] text-5xl text-center '>test</h1>
         </>
     )
