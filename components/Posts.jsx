@@ -10,9 +10,9 @@ const Posts = ({ posts, length }) => {
     return (
         <>
             <h1>Result:{length}</h1>
-            {/* <Loader />
+            <Loader />
             {posts?.map((post, id) => <Post key={uuidV4()} post={post} />)}
-            <Pagination length={length} /> */}
+            <Pagination length={length} />
         </>
     )
 }
