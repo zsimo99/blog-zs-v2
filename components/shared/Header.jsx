@@ -8,13 +8,13 @@ import { useSession, signOut } from 'next-auth/react'
 
 
 const Header = () => {
-    const { status } = useSession()
+    const { status, data: session } = useSession()
     const [show, setShow] = useState(false)
     const [auth, setAuth] = useState(false)
     const path = usePathname()
     useEffect(() => {
-        if (status === "authenticated") setAuth(true)
-    }, [status])
+        if (session) setAuth(true)
+    }, [session])
     return (
         <header className={`bg-[#461f7c] top-0 left-0 transition-colors duration-200 shadow-md  text-white fixed z-[999] w-full ${!show && "rounded-b-xl"} dark:bg-[#202020]`}>
             <div className="container flex justify-between items-center mx-auto w-full p-4 relative">
