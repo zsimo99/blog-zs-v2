@@ -1,7 +1,5 @@
 import React from 'react'
 import Post from './cards/Post'
-import { Metronome } from '@uiball/loaders'
-import { useDarkMode } from '@/context/ThemeContext'
 import Loader from './Loader'
 import { v4 as uuidV4 } from 'uuid'
 import Pagination from './Pagination'
@@ -12,9 +10,9 @@ const Posts = ({ posts, length }) => {
     return (
         <>
             <h1>Result:{length}</h1>
-            <Loader />
+            {/* <Loader />
             {posts?.map((post, id) => <Post key={uuidV4()} post={post} />)}
-            <Pagination length={length} />
+            <Pagination length={length} /> */}
         </>
     )
 }
