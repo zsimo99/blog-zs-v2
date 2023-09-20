@@ -34,8 +34,8 @@ export const options = {
     ],
     callbacks: {
         async session({ session, user, token }) {
-            console.log(session)
-            const User = await UserModel.findOne({ email: session.email }).select("_id image name")
+            await startDB()
+            const User = await UserModel.findOne({ email: token.email }).select("_id image name")
             return ({ ...session, user: { ...session.user, _id: User._id, image: User.image, name: User.name } })
         },
         // async jwt({ token, user, session, account }) {
