@@ -5,6 +5,7 @@ import Tags from '@/components/Tags'
 import startDB from '@/lib/db'
 import CommentModel from '@/models/CommentModel'
 import PostModel from '@/models/PostModel'
+import UserModel from '@/models/UserModel'
 import { notFound } from 'next/navigation'
 import React from 'react'
 import { v4 as v4uuid } from 'uuid'
@@ -116,7 +117,7 @@ async function getPost(id) {
         },
         populate: {
             path: 'author',
-            model: 'User',
+            model: UserModel,
             select: "name email image"
         }
     })
