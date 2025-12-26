@@ -12,9 +12,8 @@ import Image from 'next/image'
 
 const page = async ({ params }) => {
 
-    // const { id } = params
-    // const { post } = await getPost(id)
-    const post=null
+    const { id } = params
+    const { post } = await getPost(id)
     if (!post) return notFound()
 
     return (
