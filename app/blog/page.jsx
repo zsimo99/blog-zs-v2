@@ -9,9 +9,11 @@ import React from 'react'
 
 
 const page = async ({ searchParams }) => {
-    const search = searchParams.search || null
-    const page = searchParams.page || null
-    const { posts, length } = await getPosts(search, page)
+    // const search = searchParams.search || null
+    // const page = searchParams.page || null
+    // const { posts, length } = await getPosts(search, page)
+    const posts =[]
+    const length =0
     return (
         <div className='space-y-6'>
             <div className='bg-white dark:bg-[#1a1a1a] rounded-2xl p-4 shadow-card border border-gray-100 dark:border-gray-800'>
