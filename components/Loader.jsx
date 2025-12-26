@@ -1,23 +1,28 @@
 "use client"
 import { usePosts } from '@/context/PostContext'
 import React from 'react'
-import Post from './cards/Post'
-import { DotPulse } from '@uiball/loaders'
-import { useDarkMode } from '@/context/ThemeContext'
-
 
 
 const Loader = () => {
     const { status } = usePosts()
-    const { isDark } = useDarkMode()
+    
+    if (status !== "create") return null
+
     return (
-        <>
-            {status === "create" &&
-                <div className='h-24 w-full grid place-items-center'>
-                    <DotPulse size={80} speed={1.3} color={isDark ? "white" : "black"} />
+        <div className='p-6 bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-card border border-gray-100 dark:border-gray-800 animate-pulse'>
+            <div className='flex items-center gap-3 mb-4'>
+                <div className='w-11 h-11 bg-gray-200 dark:bg-gray-700 rounded-full'></div>
+                <div className='space-y-2'>
+                    <div className='w-24 h-4 bg-gray-200 dark:bg-gray-700 rounded'></div>
+                    <div className='w-32 h-3 bg-gray-200 dark:bg-gray-700 rounded'></div>
                 </div>
-            }
-        </>
+            </div>
+            <div className='space-y-2'>
+                <div className='w-3/4 h-5 bg-gray-200 dark:bg-gray-700 rounded'></div>
+                <div className='w-full h-4 bg-gray-200 dark:bg-gray-700 rounded'></div>
+                <div className='w-5/6 h-4 bg-gray-200 dark:bg-gray-700 rounded'></div>
+            </div>
+        </div>
     )
 }
 

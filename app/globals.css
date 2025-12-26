@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== CSS Custom Properties ===== */
+:root {
+  --primary: #461F7C;
+  --primary-hover: #5a2d9e;
+  --primary-light: #7c4dbd;
+  --secondary: #9180FF;
+  --background-light: #f5f5f7;
+  --background-dark: #121212;
+  --card-light: #ffffff;
+  --card-dark: #1f1f1f;
+  --text-light: #1a1a1a;
+  --text-dark: #f5f5f5;
+  --text-muted-light: #6b7280;
+  --text-muted-dark: #9ca3af;
+  --border-light: #e5e7eb;
+  --border-dark: #374151;
+  --shadow-light: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-dark: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+}
+
+/* ===== Base Styles ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* ===== Auth Page 3D Effect ===== */
 .pres {
   perspective: 3700px;
 }
@@ -13,54 +53,36 @@
   height: 100%;
   width: 50%;
   z-index: 98;
-  transition: all 1s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: left;
   transform-style: preserve-3d;
   background-color: black;
+  border-radius: 0 0.5rem 0.5rem 0;
+  overflow: hidden;
 }
 
 .rotate {
   transform: rotateY(-180deg);
 }
 
-.bg-gradient {
-  background: hsla(238, 100%, 71%, 1);
-  background: linear-gradient(
-    90deg,
-    hsla(238, 100%, 71%, 1) 0%,
-    hsla(295, 100%, 84%, 1) 100%
-  );
-  background: -moz-linear-gradient(
-    90deg,
-    hsla(238, 100%, 71%, 1) 0%,
-    hsla(295, 100%, 84%, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    hsla(238, 100%, 71%, 1) 0%,
-    hsla(295, 100%, 84%, 1) 100%
-  );
-  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#696EFF", endColorstr="#F8ACFF", GradientType=1);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-.backFace,.frontFace{
+.backFace,
+.frontFace {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-
 }
-.backFace{
+
+.backFace {
   transform: rotateY(-180deg);
 }
-.backFace::before,.frontFace::before{
+
+.backFace::before,
+.frontFace::before {
   content: "";
-  background-color: #461f7c65;
+  background: linear-gradient(135deg, rgba(70, 31, 124, 0.7) 0%, rgba(145, 128, 255, 0.5) 100%);
   position: absolute;
   top: 0;
   left: 0;
@@ -68,49 +90,200 @@
   height: 100%;
   z-index: 1;
 }
-.childb li:not(:last-child){
+
+/* ===== Gradient Background ===== */
+.bg-gradient {
+  background: linear-gradient(
+    135deg,
+    hsla(238, 100%, 71%, 1) 0%,
+    hsla(295, 100%, 84%, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ===== Border Bottom Lists ===== */
+.childb li:not(:last-child) {
   border-bottom: 1px solid rgb(150, 150, 150);
 }
 
-
-.ql-editor.ql-blank::before{
+/* ===== Rich Text Editor Styles ===== */
+.ql-editor.ql-blank::before {
   color: #768088 !important;
-  font-size: 22px !important;
+  font-size: 18px !important;
+  font-style: normal !important;
 }
 
+.ql-toolbar.ql-snow {
+  @apply border-gray-200 dark:border-gray-600 rounded-t-lg bg-gray-50 dark:bg-[#2a2a2a];
+}
 
+.ql-container.ql-snow {
+  @apply border-gray-200 dark:border-gray-600 rounded-b-lg bg-white dark:bg-[#1e1e1e];
+}
 
+.ql-editor {
+  @apply min-h-[120px] text-base text-gray-800 dark:text-gray-200;
+}
+
+/* Light mode Quill icons */
+.ql-stroke {
+  stroke: #374151 !important;
+}
+
+.ql-fill {
+  fill: #374151 !important;
+}
+
+.ql-picker-label {
+  color: #374151 !important;
+}
+
+.ql-picker-options {
+  @apply bg-white border-gray-200;
+}
+
+.dark .ql-stroke {
+  stroke: #d1d5db !important;
+}
+
+.dark .ql-fill {
+  fill: #d1d5db !important;
+}
+
+.dark .ql-picker-label {
+  color: #d1d5db !important;
+}
+
+.dark .ql-picker-options {
+  @apply bg-[#2a2a2a] border-gray-600;
+}
+
+/* ===== Code Block Styles ===== */
 pre {
-  white-space: pre-wrap; 
-  @apply bg-[#f4f4f4] border border-[#ddd] rounded-[5px] py-[20px] px-[10px] font-[monospace] text-[14px] dark:bg-[#2b2b2b] dark:border-[#444] dark:text-white my-10 relative
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  @apply bg-[#f8f9fa] border border-[#e9ecef] rounded-lg py-5 px-4 font-mono text-sm dark:bg-[#1e1e1e] dark:border-[#333] dark:text-gray-200 my-6 relative overflow-x-auto;
 }
-pre::before{
-  content: " Code </>";
+
+pre::before {
+  content: "Code";
   position: absolute;
   top: 0;
   transform: translateY(-50%);
-  left: 5%;
-  @apply bg-white text-black dark:bg-black dark:text-white px-3 rounded-xl border border-gray-600
+  left: 1rem;
+  @apply bg-white text-gray-600 dark:bg-[#121212] dark:text-gray-400 px-3 py-0.5 rounded-full border border-gray-200 dark:border-gray-700 text-xs font-semibold tracking-wide uppercase;
 }
 
-/* Define the styles for the scrollbar track */
-/* You can use any color or background you like */
+code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm;
+}
+
+pre code {
+  @apply bg-transparent p-0;
+}
+
+/* ===== Custom Scrollbar ===== */
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
+  height: 8px;
 }
 
-/* Define the styles for the scrollbar thumb (the draggable part) */
-::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the thumb */
-  border-radius: 4px; /* Rounded corners of the thumb */
-}
-
-/* Define the styles for the scrollbar track when it's hovered */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the thumb on hover */
-}
-
-/* Define the styles for the scrollbar track */
 ::-webkit-scrollbar-track {
-  background: #343541; /* Color of the track */
+  @apply bg-gray-100 dark:bg-[#1a1a1a];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+/* ===== Selection ===== */
+::selection {
+  @apply bg-purple-200 dark:bg-purple-900/50;
+}
+
+/* ===== Focus Styles ===== */
+:focus-visible {
+  @apply outline-none ring-2 ring-purple-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* ===== Animation Classes ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ===== Utility Classes ===== */
+.text-balance {
+  text-wrap: balance;
+}
+
+.glass {
+  @apply bg-white/80 dark:bg-black/80 backdrop-blur-md;
+}
+
+.card-shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.card-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* ===== Button Styles ===== */
+.btn-primary {
+  @apply bg-[#461F7C] hover:bg-[#5a2d9e] text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-2 px-6 rounded-lg transition-all duration-200;
+}
+
+/* ===== Input Styles ===== */
+.input-base {
+  @apply w-full bg-transparent outline-none border-2 border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2.5 transition-all duration-200 focus:border-[#461F7C] dark:focus:border-purple-500;
 }

@@ -7,17 +7,32 @@ const Trends = async () => {
     const { topTagNames: trends } = await getTrend()
 
     return (
-        <div className='max-md:hidden basis-3/12 p-3 h-[calc(100vh-65px)] sticky top-0 grid place-items-center'>
-            <div className='flex flex-col w-full gap-4 p-2 rounded-[20px] bg-white dark:bg-[#1f1f1f]'>
-                <h1 className='text-2xl font-bold text-[#461F7C]'>Popular :</h1>
-                {trends?.map((tag, i) => (
-                    <div className='p-1' key={i}>
-                        <div className='flex flex-col'>
-                            <Link className='text-gray-600 dark:text-gray-400 text-lg hover:underline' href={`/blog/?search=${tag._id}`}>#{tag._id}</Link>
-                            <div className='text-sm text-gray-500 -translate-y-2 text-end'>{tag.count === 1 ? "1 post" : `${tag.count} posts`}</div>
-                        </div>
-                    </div>
-                ))}
+        <div className='bg-white dark:bg-[#1a1a1a] rounded-2xl p-5 shadow-card border border-gray-100 dark:border-gray-800'>
+            <h2 className='text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2'>
+                <svg className='w-5 h-5 text-[#461F7C] dark:text-purple-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 7h8m0 0v8m0-8l-8 8-4-4-6 6' />
+                </svg>
+                Trending Tags
+            </h2>
+            <div className='space-y-1'>
+                {trends?.length > 0 ? trends.map((tag, i) => (
+                    <Link 
+                        key={i}
+                        href={`/blog/?search=${tag._id}`}
+                        className='flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group'
+                    >
+                        <span className='text-[#461F7C] dark:text-purple-400 font-medium group-hover:text-[#5a2d9e] dark:group-hover:text-purple-300 transition-colors'>
+                            #{tag._id}
+                        </span>
+                        <span className='text-xs text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full'>
+                            {tag.count} {tag.count === 1 ? 'post' : 'posts'}
+                        </span>
+                    </Link>
+                )) : (
+                    <p className='text-sm text-gray-500 dark:text-gray-400 text-center py-4'>
+                        No trending tags yet
+                    </p>
+                )}
             </div>
         </div>
     )

@@ -17,11 +17,11 @@ const TextEditor = ({ postForm, setPostForm, comment, text, setText }) => {
         ]
     }
 
-    return (<>
-        {!comment && <ReactQuill modules={modules} className='h-32' theme="snow" value={postForm?.detail} placeholder='Detail' onChange={(e) => setPostForm(prev => ({ ...prev, detail: e }))} />}
-        {comment && <ReactQuill modules={modules} className='h-32' theme="snow" value={text} placeholder='Text' onChange={(e) => setText(e)} />}
-
-    </>
+    return (
+        <div className='pb-16'>
+            {!comment && <ReactQuill modules={modules} className='[&_.ql-container]:min-h-[120px]' theme="snow" value={postForm?.detail} placeholder='Detail' onChange={(e) => setPostForm(prev => ({ ...prev, detail: e }))} />}
+            {comment && <ReactQuill modules={modules} className='[&_.ql-container]:min-h-[120px]' theme="snow" value={text} placeholder='Text' onChange={(e) => setText(e)} />}
+        </div>
     )
 }
 

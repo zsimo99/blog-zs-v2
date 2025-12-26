@@ -13,21 +13,16 @@ const page = async ({ searchParams }) => {
     const page = searchParams.page || null
     const { posts, length } = await getPosts(search, page)
     return (
-        <>
-            <div className='mt-4 mb-8 lg:my-8'>
+        <div className='space-y-6'>
+            <div className='bg-white dark:bg-[#1a1a1a] rounded-2xl p-4 shadow-card border border-gray-100 dark:border-gray-800'>
                 <Search />
             </div>
-            <div className='flex flex-col gap-8 mb-8'>
-                <Posts length={length} posts={posts} />
-            </div>
-        </>
+            <Posts length={length} posts={posts} />
+        </div>
     )
 }
 
 async function getPosts(search, page) {
-
-
-    // Extract just the tag names from the result
     await startDB()
 
     let searchArray = null

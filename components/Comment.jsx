@@ -3,13 +3,23 @@ import React, { useState } from 'react'
 
 const Comment = ({ text }) => {
     const [showAll, setShowAll] = useState(false)
+    const isLong = text.length > 200
+
     return (
-        <>
-            <div>
-                <div className='text-lg p-3 rounded-xl font-normal first-line:ms-5 mt-3 text-gray-700 dark:text-gray-300' dangerouslySetInnerHTML={{ __html: showAll ? text : text.slice(0, 200) }}></div>
-                <p onClick={() => setShowAll(prev => !prev)} className='my-3 w-fit hover:underline cursor-pointer text-gray-500'>{showAll ? "...show less" : "...show more"}</p>
-            </div>
-        </>
+        <div className='mt-2'>
+            <div 
+                className='text-gray-700 dark:text-gray-300 prose prose-sm dark:prose-invert max-w-none'
+                dangerouslySetInnerHTML={{ __html: showAll || !isLong ? text : text.slice(0, 200) + '...' }}
+            />
+            {isLong && (
+                <button 
+                    onClick={() => setShowAll(prev => !prev)} 
+                    className='mt-2 text-sm text-[#461F7C] dark:text-purple-400 hover:underline font-medium'
+                >
+                    {showAll ? "Show less" : "Show more"}
+                </button>
+            )}
+        </div>
     )
 }
 

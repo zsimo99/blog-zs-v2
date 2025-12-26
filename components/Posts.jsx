@@ -8,12 +8,18 @@ import Pagination from './Pagination'
 
 const Posts = ({ posts, length }) => {
     return (
-        <>
-            <h1>Result:{length}</h1>
+        <div className='space-y-6'>
+            <div className='flex items-center justify-between'>
+                <h2 className='text-sm font-medium text-gray-500 dark:text-gray-400'>
+                    {length === 0 ? 'No posts found' : `${length} ${length === 1 ? 'post' : 'posts'} found`}
+                </h2>
+            </div>
             <Loader />
-            {posts?.map((post, id) => <Post key={uuidV4()} post={post} />)}
-            <Pagination length={length} />
-        </>
+            <div className='space-y-4'>
+                {posts?.map((post) => <Post key={uuidV4()} post={post} />)}
+            </div>
+            {length > 0 && <Pagination length={length} />}
+        </div>
     )
 }
 
