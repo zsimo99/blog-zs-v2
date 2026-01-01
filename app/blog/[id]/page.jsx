@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: post.title,
-    description: post.detail.slice(0, 160), // first 160 chars for SEO
+    description: post.detail.slice(0, 160).replace("<p>","").replace("</p>",""), // first 160 chars for SEO
   }
 }
 
