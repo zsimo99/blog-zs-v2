@@ -11,6 +11,20 @@ import React from 'react'
 import { v4 as v4uuid } from 'uuid'
 import Image from 'next/image'
 
+export async function generateMetadata({ params }) {
+  const { id } = params
+  await startDB()
+
+  const post = await PostModel.findById(id)
+  if (!post) return notFound()
+
+  return {
+    title: post.title,
+    description: post.detail.slice(0, 160), // first 160 chars for SEO
+  }
+}
+
+
 const page = async ({ params }) => {
 
     const { id } = params

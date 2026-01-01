@@ -208,10 +208,7 @@ pre code {
   @apply bg-purple-200 dark:bg-purple-900/50;
 }
 
-/* ===== Focus Styles ===== */
-:focus-visible {
-  @apply outline-none ring-2 ring-purple-500 ring-offset-2 dark:ring-offset-gray-900;
-}
+
 
 /* ===== Animation Classes ===== */
 @keyframes fadeIn {

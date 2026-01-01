@@ -43,7 +43,7 @@ const Search = () => {
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => setIsFocused(false)}
                         type="text" 
-                        className='flex-1 bg-transparent px-3 py-4 outline-none text-gray-800 dark:text-gray-200 text-base md:text-lg placeholder:text-gray-400 dark:placeholder:text-gray-500' 
+                        className='flex-1 bg-transparent px-3 py-4 outline-none text-gray-800 dark:text-gray-200 text-base md:text-lg  placeholder:text-gray-400 dark:placeholder:text-gray-500' 
                         placeholder='Search posts, tags, or topics...' 
                     />
                 </div>
