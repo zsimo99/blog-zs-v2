@@ -54,7 +54,7 @@ const Post = ({ post }) => {
             <div className='text-gray-600 dark:text-gray-300 leading-relaxed'>
                 <div 
                     dangerouslySetInnerHTML={{ __html: post.detail.length > 300 ? post.detail.slice(0, 300) : post.detail }} 
-                    className='prose prose-sm dark:prose-invert max-w-none'
+                    className='post_details prose prose-sm dark:prose-invert max-w-none'
                 />
                 {post.detail.length > 300 && (
                     <Link href={`/blog/${post._id}`} className='inline-flex items-center gap-1 mt-2 text-[#461F7C] dark:text-purple-400 hover:underline font-medium text-sm'>

@@ -38,7 +38,7 @@ const page = async ({ params }) => {
             {/* Post Content */}
             <div className='bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 md:p-8 shadow-card border border-gray-100 dark:border-gray-800 mb-8'>
                 <div 
-                    className='prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-a:text-[#461F7C] dark:prose-a:text-purple-400'
+                    className='post_details prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-a:text-[#461F7C] dark:prose-a:text-purple-400'
                     dangerouslySetInnerHTML={{ __html: post.detail }}
                 />
             </div>
