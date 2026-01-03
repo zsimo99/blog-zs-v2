@@ -8,7 +8,7 @@ const Comment = ({ text }) => {
     return (
         <div className='mt-2'>
             <div 
-                className='text-gray-700 dark:text-gray-300 prose prose-sm dark:prose-invert max-w-none'
+                className='.post_details text-gray-700 dark:text-gray-300 prose prose-sm dark:prose-invert max-w-none'
                 dangerouslySetInnerHTML={{ __html: showAll || !isLong ? text : text.slice(0, 200) + '...' }}
             />
             {isLong && (
