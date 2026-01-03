@@ -163,7 +163,7 @@ body {
 pre {
   white-space: pre-wrap;
   word-wrap: break-word;
-  @apply bg-[#f8f9fa] border border-[#e9ecef] rounded-lg py-5 px-4 font-mono text-sm dark:bg-[#1e1e1e] dark:border-[#333] dark:text-gray-200 my-6 relative overflow-x-auto;
+  @apply bg-[#f8f9fa] border border-[#e9ecef] rounded-lg py-5 px-4 font-mono text-sm dark:bg-[#1e1e1e] dark:border-[#333] dark:text-gray-200 my-6 relative;
 }
 
 pre::before {
@@ -176,7 +176,7 @@ pre::before {
 }
 
 code {
-  @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm;
+  @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm text-black dark:text-white;
 }
 
 pre code {
