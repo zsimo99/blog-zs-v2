@@ -38,13 +38,12 @@ export const options = {
             const User = await UserModel.findOne({ email: token.email }).select("_id image name")
             return ({ ...session, user: { ...session.user, _id: User._id, image: User.image, name: User.name } })
         },
-        // async jwt({ token, user, session, account }) {
-        //     // console.log({ user })
-        //     if (user) {
-        //         return ({ ...token, _id: user._id })
-        //     }
-        //     return token
-        // },
+        async jwt({ token, user, session, account }) {
+            if (user) {
+                token._id = user._id
+            }
+            return token
+        },
         async signIn({ user, account, profile }) {
             if (account.provider === "google" || account.provider === "github") {
                 try {

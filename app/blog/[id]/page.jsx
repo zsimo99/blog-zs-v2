@@ -84,7 +84,7 @@ const page = async ({ params }) => {
                                             </p>
                                         </div>
                                     </div>
-                                    <CommentParams text={comment.text} userId={comment.author?._id} />
+                                    <CommentParams text={comment.text} userId={comment.author?._id} id={comment._id} />
                                 </div>
                                 <Comment text={comment.text} />
                                 <time className='block text-xs text-gray-400 dark:text-gray-500 text-right mt-2'>
