@@ -367,16 +367,16 @@ pre code {
 
 /* Code */
 .post_details pre {
-  background: #0f172a;
-  color: #e5e7eb;
+  /* background: #0f172a;
+  color: #e5e7eb; */
   padding: 16px;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   border-radius: 6px;
   margin: 16px 0;
 }
 
 .post_details code {
-  background: #f1f5f9;
+  /* background: #f1f5f9; */
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 90%;
@@ -405,4 +405,7 @@ pre code {
   margin: 24px 0;
   border: none;
   border-top: 1px solid #ddd;
+}
+.post_details code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm !text-gray-100 dark:!text-gray-900;
 }
