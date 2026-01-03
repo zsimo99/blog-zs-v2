@@ -407,5 +407,5 @@ pre code {
   border-top: 1px solid #ddd;
 }
 .post_details code {
-  @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm !text-gray-100 dark:!text-gray-900;
+  @apply !bg-gray-100 dark:!bg-gray-800 px-1.5 py-0.5 rounded text-sm dark:!text-gray-100 !text-gray-900;
 }
